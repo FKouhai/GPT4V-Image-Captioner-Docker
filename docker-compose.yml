@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   captioner:
-    image: "${CAPIONER_IMAGE:-frankyb/captioner:v2}"
+    image: "${CAPIONER_IMAGE:-frankyb/captioner:2.1}"
     volumes:
       - ./models/:/GPT4V-Image-Captioner/models/
       - ./huggingface/:/GPT4V-Image-Captioner/huggingface/
