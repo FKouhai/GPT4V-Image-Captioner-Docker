@@ -7,8 +7,7 @@ RUN apt remove -y git
 WORKDIR GPT4V-Image-Captioner/
 RUN chmod +x gpt-caption.py
 RUN pip install -r install_script/requirements.txt
-RUN pip install torch loguru\
-    && pip install transformers
+RUN pip install -r install_script/require.txt
 EXPOSE 8848
 ENV HF_HOME huggingface
 ENTRYPOINT [ "python3", "gpt-caption.py", "--listen", "--share" ]
