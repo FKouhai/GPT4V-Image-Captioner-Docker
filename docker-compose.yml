@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  captioner:
+    image: "${CAPIONER_IMAGE:-frankyb/captioner:v2}"
+    volumes:
+      - ./models/:/GPT4V-Image-Captioner/models/
+      - ./huggingface/:/GPT4V-Image-Captioner/huggingface/
+    ports:
+      - "${HOST_PORT:-8088}:${CAPTIONER_PORT:-8848}"
+    deploy:
+        resources:
+          reservations:
+            devices:
+              - driver: nvidia
+                device_ids: ['0']
+                capabilities: [gpu]
+    
